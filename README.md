@@ -1,5 +1,3 @@
-You just released the optional tasks of this project. Have fun!
-
 0x1B. C - Sorting algorithms & Big O
 ====================================
 
