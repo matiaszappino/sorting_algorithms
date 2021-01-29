@@ -5,14 +5,6 @@ You just released the optional tasks of this project. Have fun!
 
 Foundations - Low-level programming & Algorithm ― Data structures and Algorithms
 
-_By Alexandre Gautier, Software Engineer at Holberton School_
-
-Ongoing project - started 01-28-2021, must end by 02-04-2021 (in 5 days) - you're done with 0% of tasks.
-
-Checker will be released at 01-31-2021 12:00 PM
-
-QA review fully automated.
-
 ![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/248/willy-wonka.png)  
   
 
