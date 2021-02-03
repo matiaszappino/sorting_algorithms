@@ -11,7 +11,7 @@ void shell_sort(int *array, size_t size)
 	unsigned int i, j;
 	int temp;
 
-    if (array == NULL || size < 2)
+	if (array == NULL || size < 2)
 		return;
 
 	while (gap < size / 3)
