@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
- * quick_sort - Selection Sort Algorithm
+ * counting_sort - Selection Sort Algorithm
  * @array: Array to be sorted
  * @size: Size of the Array
  * Return: Void
