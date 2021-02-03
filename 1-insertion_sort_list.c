@@ -1,11 +1,9 @@
 #include "sort.h"
 /**
- * insertion_sort_list - order a double linked
- * list using the algorithm insertion_sort
- * @list: Double linked list
- * Return: Nothing
+ * insertion_sort_list - Insertion sort algorithm
+ * @list: List to be sorted
+ * Return: void
  */
-
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *aux = NULL;
@@ -25,14 +23,14 @@ void insertion_sort_list(listint_t **list)
 			{
 				tmp = aux;
 				tmp_two = aux;
-				swap_nodes(list, aux->prev, aux);
+				swp_nodes(list, aux->prev, aux);
 				aux = aux->next;
 				print_list(*list);
 				while (tmp_two)
 				{
 					if (tmp_two->n > tmp->n)
 					{
-						swap_nodes(list, tmp_two, tmp);
+						swp_nodes(list, tmp_two, tmp);
 						print_list(*list);
 					}
 					tmp_two = tmp_two->prev;
@@ -42,16 +40,14 @@ void insertion_sort_list(listint_t **list)
 		aux = aux->next;
 	}
 }
-
 /**
- * swap_nodes - swap the nodes of the list
+ * swp_nodes - swap the nodes of the list
  * @list: Double linked list
- * @node_A: Node A
- * @node_B: Node B
- * Return: Nothing
+ * @first_node: first node
+ * @second_node: second node
+ * Return: void
  */
-
-void swap_nodes(listint_t **list, listint_t *first_node, listint_t *second_node)
+void swp_nodes(listint_t **list, listint_t *first_node, listint_t *second_node)
 {
 	listint_t *tmp = first_node->prev;
 	listint_t *tmp_two = second_node->next;
