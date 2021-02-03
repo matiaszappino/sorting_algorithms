@@ -3,6 +3,7 @@
 #include "sort.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -17,8 +18,17 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
+
 void print_list(const listint_t *list);
 void print_array(const int *array, size_t size);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
+void print_list(const listint_t *list);
+void swap_nodes(listint_t **list, listint_t *node_A, listint_t *node_B);
+void selection_sort(int *array, size_t size);
+void quick_sort(int *array, size_t size);
+int partition(int *array, ssize_t startindex, ssize_t endindex, size_t size);
+void quicksort(int *array, ssize_t startindex, ssize_t endindex, size_t size);
+void swap(int *a, int *b);
+
 #endif
