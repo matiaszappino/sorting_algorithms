@@ -1,5 +1,4 @@
 #include "sort.h"
-
 /**
  * insertion_sort_list - order a double linked
  * list using the algorithm insertion_sort
@@ -9,7 +8,9 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *aux = NULL, *temp = NULL, *temp2 = NULL;
+	listint_t *aux = NULL;
+	listint_t *tmp = NULL;
+	listint_t *tmp_two = NULL;
 
 	if (!list || !(*list) || (!(*list)->next))
 		return;
@@ -22,19 +23,19 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (aux->prev->n > aux->n)
 			{
-				temp = aux;
-				temp2 = aux;
+				tmp = aux;
+				tmp_two = aux;
 				swap_nodes(list, aux->prev, aux);
 				aux = aux->next;
 				print_list(*list);
-				while (temp2)
+				while (tmp_two)
 				{
-					if (temp2->n > temp->n)
+					if (tmp_two->n > tmp->n)
 					{
-						swap_nodes(list, temp2, temp);
+						swap_nodes(list, tmp_two, tmp);
 						print_list(*list);
 					}
-					temp2 = temp2->prev;
+					tmp_two = tmp_two->prev;
 				}
 			}
 		}
@@ -50,43 +51,43 @@ void insertion_sort_list(listint_t **list)
  * Return: Nothing
  */
 
-void swap_nodes(listint_t **list, listint_t *node_A, listint_t *node_B)
+void swap_nodes(listint_t **list, listint_t *first_node, listint_t *second_node)
 {
-	listint_t *t1 = node_A->prev;
-	listint_t *t2 = node_B->next;
+	listint_t *tmp = first_node->prev;
+	listint_t *tmp_two = second_node->next;
 
-	if (node_A->prev == NULL && node_B->next == NULL)
+	if (first_node->prev == NULL && second_node->next == NULL)
 	{
-		node_A->next = NULL;
-		node_B->prev = NULL;
-		node_A->prev = node_B;
-		node_B->next = node_A;
-		*list = node_B;
+		first_node->next = NULL;
+		second_node->prev = NULL;
+		first_node->prev = second_node;
+		second_node->next = first_node;
+		*list = second_node;
 	}
-	else if (node_A->prev == NULL)
+	else if (first_node->prev == NULL)
 	{
-		node_A->next = t2;
-		node_B->prev = NULL;
-		node_A->prev = node_B;
-		node_B->next = node_A;
-		t2->prev = node_A;
-		*list = node_B;
+		first_node->next = tmp_two;
+		second_node->prev = NULL;
+		first_node->prev = second_node;
+		second_node->next = first_node;
+		tmp_two->prev = first_node;
+		*list = second_node;
 	}
-	else if (node_B->next == NULL)
+	else if (second_node->next == NULL)
 	{
-		node_A->prev = node_B;
-		node_B->next = node_A;
-		node_B->prev = t1;
-		t1->next = node_B;
-		node_A->next = NULL;
+		first_node->prev = second_node;
+		second_node->next = first_node;
+		second_node->prev = tmp;
+		tmp->next = second_node;
+		first_node->next = NULL;
 	}
 	else
 	{
-		node_A->prev = node_B;
-		node_B->next = node_A;
-		node_A->next = t2;
-		node_B->prev = t1;
-		t1->next = node_B;
-		t2->prev = node_A;
+		first_node->prev = second_node;
+		second_node->next = first_node;
+		first_node->next = tmp_two;
+		second_node->prev = tmp;
+		tmp->next = second_node;
+		tmp_two->prev = first_node;
 	}
 }
